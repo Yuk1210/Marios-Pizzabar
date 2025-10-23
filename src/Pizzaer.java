@@ -14,6 +14,8 @@ public class Pizzaer {
 
     @Override
     public String toString() {
-        return id + navn + ingredienser + pris;
+        return "Nr: " + id + ", Navn: " + navn + "\n"
+                + ingredienser + "\n"
+                + "Pris: " + pris + "Kr\n";
     }
 }
