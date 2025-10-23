@@ -36,11 +36,11 @@ public class Main {
         }
     }
 
+
     public static void visMenu(){
-        System.out.println("==== MARIOS PIZZABAR MENU ====");
+        System.out.println("Mario Pizzamenu");
         for (Pizzaer p : Menu.hentMenu()) {
             System.out.println(p);
-            System.out.println("_________________________\n");
         }
     }
 }

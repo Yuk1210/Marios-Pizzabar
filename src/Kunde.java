@@ -1,9 +1,9 @@
 public class Kunde {
     public String navn;
-    public String tlfnr;
+    public String odrenr;
 
     public Kunde (String navn, String tlfnr) {
         this.navn = navn;
-        this.tlfnr = tlfnr;
+        this.odrenr = ordrenr;
     }
 }
