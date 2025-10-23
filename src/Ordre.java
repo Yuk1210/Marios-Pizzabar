@@ -14,4 +14,16 @@ public class Ordre {
         this.pizzaer = new ArrayList<>();
         this.feardig = false;
     }
+
+    private int getOrdrenr() {
+        return ordrenr;
+    }
+
+    private kunde getKunde() {
+        return kunde;
+    }
+
+    private int getTotalPris() {
+        return totalPris;
+    }
 }

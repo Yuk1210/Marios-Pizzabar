@@ -19,7 +19,7 @@ public class Main {
         while (run) {
             System.out.println(" Mario Pizzabar");
             System.out.println("1. Se Pizzamenu");
-            System.out.println("2. Opret Odre");
+            System.out.println("2. Opret Ordre");
             System.out.println("3. Afslut program");
 
             int valg = input.nextInt();
@@ -38,9 +38,10 @@ public class Main {
 
 
     public static void visMenu(){
-        System.out.println("Mario Pizzamenu");
+        System.out.println("==== MARIOS PIZZABAR ====");
         for (Pizzaer p : Menu.hentMenu()) {
             System.out.println(p);
+            System.out.println("_________________________\n");
         }
     }
 }
