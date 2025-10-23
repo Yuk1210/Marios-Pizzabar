@@ -1,6 +1,6 @@
 # Marios-Pizzabar
 
-første Skole project:
+første Skole project:"\n"
 Lav et program til at håndtage bestillinger
 Programmet skal indhold:
 Et system der kan holde styr på ordre
