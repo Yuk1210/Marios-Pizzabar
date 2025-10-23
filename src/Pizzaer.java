@@ -11,6 +11,10 @@ public class Pizzaer {
         this.pris = pris;
     }
 
+    public String getNavn() {
+        return navn;
+    }
+
 
     @Override
     public String toString() {

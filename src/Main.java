@@ -48,13 +48,23 @@ public class Main {
     public static void opretOrdre() {
         Scanner ordre = new Scanner(System.in);
         System.out.println("Indtast pizzanr: ");
+        // vis alle pizzaer på menuen
         for(int i = 0; i <Menu.hentMenu().size(); i++){
-            System.out.println(i + 1);
+            Pizzaer p = Menu.hentMenu().get(i);
+            System.out.println((i + 1) + ". " + p.getNavn());
         }
+        // læs brugerens valg
         int valg = ordre.nextInt();
+
+        // hent den valgte pizza fra listen ( minus 1 fordi lister starter på 0.
+        Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
+
         System.out.println("Tak!, du har nu valgt pizza " + valg );
-        System.out.println();
-        // vi skal hente pizzaen fra listen menu
+        System.out.println("Pris: " + valgtPizza.getPris() + " kr");
+
+
+
+
 
     }
 
