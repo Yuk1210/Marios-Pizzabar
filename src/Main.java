@@ -27,6 +27,7 @@ public class Main {
 
             switch (valg) {
                 case 1 -> visMenu();
+                case 2 -> opretOrdre();
                 case 3 -> {
                     run = false;
                     System.out.println("Program afsluttet");
@@ -44,4 +45,18 @@ public class Main {
             System.out.println("_________________________\n");
         }
     }
+    public static void opretOrdre() {
+        Scanner ordre = new Scanner(System.in);
+        System.out.println("Indtast pizzanr: ");
+        for(int i = 0; i <Menu.hentMenu().size(); i++){
+            System.out.println(i + 1);
+        }
+        int valg = ordre.nextInt();
+        System.out.println("Tak!, du har nu valgt pizza " + valg );
+        System.out.println();
+        // vi skal hente pizzaen fra listen menu
+
+    }
+
+
 }

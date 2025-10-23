@@ -1,8 +1,8 @@
 public class Pizzaer {
-    public int id;
-    public String navn;
-    public String ingredienser;
-    public int pris;
+    private int id;
+    private String navn;
+    private String ingredienser;
+    private int pris;
 
     public Pizzaer (int id, String navn, String ingredienser, int pris) {
         this.id = id;
@@ -17,5 +17,8 @@ public class Pizzaer {
         return "Nr: " + id + ", Navn: " + navn + "\n"
                 + ingredienser + "\n"
                 + "Pris: " + pris + "Kr\n";
+    }
+    public int getPris(){
+        return pris;
     }
 }
