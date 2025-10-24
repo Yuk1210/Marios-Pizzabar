@@ -11,18 +11,20 @@ public class Pizzaer {
         this.pris = pris;
     }
 
+    //Getter
+    public int getId() {
+        return id; }
     public String getNavn() {
-        return navn;
-    }
-
+        return navn; }
+    public String getIngredienser() {
+        return ingredienser; }
+    public int getPris() {
+        return pris; }
 
     @Override
     public String toString() {
         return "Nr: " + id + ", Navn: " + navn + "\n"
                 + ingredienser + "\n"
                 + "Pris: " + pris + "Kr\n";
-    }
-    public int getPris(){
-        return pris;
     }
 }

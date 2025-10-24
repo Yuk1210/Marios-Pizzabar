@@ -12,26 +12,18 @@ public class Ordre {
         this.kunde = kunde;
         this.pizzaer = new ArrayList<>();
         this.totalPris = totalPris;
-
-
     }
 
+    //Getter
     private int getOrdrenr() {
-        return ordrenr;
-    }
-
+        return ordrenr;}
     private Kunde getKunde() {
-        return kunde;
-    }
-
+        return kunde;}
     private int getTotalPris() {
-        return totalPris;
-    }
+        return totalPris;}
 
     public void tilføjPizza(Pizzaer pizza) {
         pizzaer.add(pizza);
         totalPris += pizza.getPris();
-
-
     }
 }

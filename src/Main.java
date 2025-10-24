@@ -5,14 +5,15 @@
 //Gem afsluttede ordrer i database
 //Se omsætning og statistik (ejer)
 
-
 import java.util.Scanner;
 
 public class Main {
 
-
     public static void main(String[] args) {
+
+        //Alle scanners
         Scanner input = new Scanner(System.in);
+        Scanner ordre = new Scanner(System.in);
 
         boolean run = true;
 
@@ -21,6 +22,7 @@ public class Main {
             System.out.println("1. Se Pizzamenu");
             System.out.println("2. Opret Ordre");
             System.out.println("3. Afslut program");
+            System.out.print("Vælg: ");
 
             int valg = input.nextInt();
             input.nextLine();
@@ -37,8 +39,6 @@ public class Main {
 
                 case 2 -> {
                     System.out.println("opret Ordre");
-
-                    Scanner ordre = new Scanner(System.in);
                     System.out.println("Indtast pizzanr: ");
                     // vis alle pizzaer på menuen
                     for (int i = 0; i < Menu.hentMenu().size(); i++) {
@@ -51,7 +51,7 @@ public class Main {
                     // hent den valgte pizza fra listen ( minus 1 fordi lister starter på 0.
                     Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
 
-                    System.out.println("Tak!, du har nu valgt pizza " + valg);
+                    System.out.println("Tak!, du har nu valgt pizza #" + valg);
                     System.out.println("Pris: " + valgtPizza.getPris() + " kr");
                 }
 
@@ -59,7 +59,7 @@ public class Main {
                     run = false;
                     System.out.println("Program afsluttet");
                 }
-                default -> System.out.println("Fejl!");
+                default -> System.out.println("Ugyldigt valg");
             }
         }
     }
