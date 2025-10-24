@@ -33,6 +33,5 @@ public class Ordre {
         totalPris += pizza.getPris();
 
 
-
     }
 }
