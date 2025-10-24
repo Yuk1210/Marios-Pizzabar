@@ -4,7 +4,7 @@ public class Pizzaer {
     private String ingredienser;
     private int pris;
 
-    public Pizzaer (int id, String navn, String ingredienser, int pris) {
+    public Pizzaer(int id, String navn, String ingredienser, int pris) {
         this.id = id;
         this.navn = navn;
         this.ingredienser = ingredienser;
@@ -13,13 +13,20 @@ public class Pizzaer {
 
     //Getter
     public int getId() {
-        return id; }
+        return id;
+    }
+
     public String getNavn() {
-        return navn; }
+        return navn;
+    }
+
     public String getIngredienser() {
-        return ingredienser; }
+        return ingredienser;
+    }
+
     public int getPris() {
-        return pris; }
+        return pris;
+    }
 
     @Override
     public String toString() {
