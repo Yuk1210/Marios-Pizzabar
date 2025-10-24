@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ordre {
+public class Ordre{
     private int ordrenr;
     private Kunde kunde;
     private List<Pizzaer> pizzaer;
@@ -15,11 +15,13 @@ public class Ordre {
     }
 
     //Getter
-    private int getOrdrenr() {
+    public int getOrdrenr() {
         return ordrenr;}
-    private Kunde getKunde() {
+    public Kunde getKunde() {
         return kunde;}
-    private int getTotalPris() {
+    public List<Pizzaer> getPizzaer() {
+        return pizzaer;}
+    public int getTotalPris() {
         return totalPris;}
 
     public void tilføjPizza(Pizzaer pizza) {
