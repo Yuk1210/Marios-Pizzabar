@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Main {
 
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         boolean run = true;
@@ -26,8 +26,35 @@ public class Main {
             input.nextLine();
 
             switch (valg) {
-                case 1 -> visMenu();
-                case 2 -> opretOrdre();
+                case 1 -> {
+                    System.out.println("visMenu");
+                    System.out.println("==== MARIOS PIZZABAR ====");
+                    for (Pizzaer p : Menu.hentMenu()) {
+                        System.out.println(p);
+                        System.out.println("_________________________\n");
+                    }
+                }
+
+                case 2 -> {
+                    System.out.println("opret Ordre");
+
+                    Scanner ordre = new Scanner(System.in);
+                    System.out.println("Indtast pizzanr: ");
+                    // vis alle pizzaer på menuen
+                    for (int i = 0; i < Menu.hentMenu().size(); i++) {
+                        Pizzaer p = Menu.hentMenu().get(i);
+                        System.out.println((i + 1) + ". " + p.getNavn());
+                    }
+                    // læs brugerens valg
+                    valg = ordre.nextInt();
+
+                    // hent den valgte pizza fra listen ( minus 1 fordi lister starter på 0.
+                    Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
+
+                    System.out.println("Tak!, du har nu valgt pizza " + valg);
+                    System.out.println("Pris: " + valgtPizza.getPris() + " kr");
+                }
+
                 case 3 -> {
                     run = false;
                     System.out.println("Program afsluttet");
@@ -36,37 +63,4 @@ public class Main {
             }
         }
     }
-
-
-    public static void visMenu(){
-        System.out.println("==== MARIOS PIZZABAR ====");
-        for (Pizzaer p : Menu.hentMenu()) {
-            System.out.println(p);
-            System.out.println("_________________________\n");
-        }
-    }
-    public static void opretOrdre() {
-        Scanner ordre = new Scanner(System.in);
-        System.out.println("Indtast pizzanr: ");
-        // vis alle pizzaer på menuen
-        for(int i = 0; i <Menu.hentMenu().size(); i++){
-            Pizzaer p = Menu.hentMenu().get(i);
-            System.out.println((i + 1) + ". " + p.getNavn());
-        }
-        // læs brugerens valg
-        int valg = ordre.nextInt();
-
-        // hent den valgte pizza fra listen ( minus 1 fordi lister starter på 0.
-        Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
-
-        System.out.println("Tak!, du har nu valgt pizza " + valg );
-        System.out.println("Pris: " + valgtPizza.getPris() + " kr");
-
-
-
-
-
-    }
-
-
 }
