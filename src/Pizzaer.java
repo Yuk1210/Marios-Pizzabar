@@ -16,27 +16,22 @@ public class Pizzaer {
 
     //Getter
     public int getId() {
-        return id;
-    }
-
+        return id;}
     public String getNavn() {
-        return navn;
-    }
-
+        return navn;}
     public String getIngredienser() {
-        return ingredienser;
-    }
-
+        return ingredienser;}
     public int getPris() {
-        return pris;
-    }
+        return pris;}
+    public List<Topping>getToppings() {
+        return toppings;}
 
     @Override
-    public String toString() {
+    public String toString(){
         return "Nr: " + id + ", Navn: " + navn + "\n"
                 + ingredienser + "\n"
                 + "Pris: " + pris + "Kr\n";
     }
     private List<Topping> toppings = new ArrayList<>();
-    public void tilfoej(Topping t){ toppings.add(t);pris += toppings.getPris();}
-        public List<Topping>getToppings() return toppings;}
+    public void tilfoej(Topping t){ toppings.add(t);pris += t.getPris();}
+}

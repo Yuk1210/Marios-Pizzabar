@@ -5,24 +5,26 @@
 //Gem afsluttede ordrer i database
 //Se omsætning og statistik (ejer)
 
-
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
 
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        Bestillingsliste bestillingsliste = new Bestillingsliste();
+        int næsteOrdrenr = 1;
 
         boolean run = true;
-
         while (run) {
             System.out.println(" Mario Pizzabar");
             System.out.println("1. Se Pizzamenu");
             System.out.println("2. Opret Ordre");
-            System.out.println("3. Afslut program");
+            System.out.println("3: Vis aktive ordrer");
+            System.out.println("4: Afslut ordre");
+            System.out.println("5. Afslut program");
+            System.out.print("Vælg: ");
 
             int valg = input.nextInt();
             input.nextLine();
@@ -37,15 +39,16 @@ public class Main {
                     }
                 }
 
-
                 case 2 -> {
                     System.out.println("Opret odre");
 
                     Scanner ordre = new Scanner(System.in);
                     List<Pizzaer> bestilling = new ArrayList<>();
-                    System.out.println("Indtast pizzanr (0 for at afslutte):");
+                    Kunde kunde = new Kunde("Testkunde", "2568");
+                    int total = 0;
 
-                    while (true) {
+                    boolean done = false;
+                    while (!done) {
                         // vis alle pizzaer på menuen
                         for (int i = 0; i < Menu.hentMenu().size(); i++) {
                             Pizzaer p = Menu.hentMenu().get(i);
@@ -53,13 +56,9 @@ public class Main {
                         }
 
                         // læs brugerens valg og vælg pizza
-                        System.out.println("Vælg pizza: ");
+                        System.out.println("Vælg pizza # ");
                         valg = ordre.nextInt();
-
-                        if (valg == 0) {
-                            break;
-                        }
-
+                        ordre.nextLine();
                         Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
                         bestilling.add(valgtPizza);
 
@@ -67,11 +66,13 @@ public class Main {
                         System.out.println("Pris: " + valgtPizza.getPris() + " kr");
 
                         //tilføj topping
-                        System.out.println("vælg Topping ja/nej ");
+                        System.out.println("Vil du tilføje toppings ja/nej");
+                        System.out.println("alle toppings koster en ekstra 10kr");
+
                         String svar = ordre.nextLine();
-                        if (svar.equalsIgnoreCase("ja")){
+                        if (svar.equalsIgnoreCase("ja")) {
                             boolean tilfoej = true;
-                            while (tilfoej){
+                            while (tilfoej) {
                                 System.out.println("Vælg topping");
                                 System.out.println();
                                 System.out.println("1 Chili");
@@ -84,45 +85,82 @@ public class Main {
                                 System.out.println("8 Kebab");
                                 System.out.println("9 Skinke");
                                 System.out.println("10 Tun");
-                                System.out.println();
                                 System.out.println("11 Færdig");
 
                                 int t = ordre.nextInt();
+                                ordre.nextLine();
 
-                                switch (t){
-                                 case 1 ->  valgtPizza.tilfoej(new Topping);
-                                 case 2 -> valgtPizza.tilfoej(new Topping);
-                                 case 3 -> valgtPizza.tilfoej(new Topping);
-                                 case 4 -> valgtPizza.tilfoej(new Topping);
-                                 case 5 -> tilfoej(new Topping);
-                                 case 6 -> tilfoej(new Topping);
-                                 case 7 -> tilfoej(new Topping);
-                                 case 8 -> tilfoej(new Topping);
-                                 case 9 -> tilfoej(new Topping);
-                                 case 10 -> tilfoej(new Topping);
-                                 case 11 -> tilfoej = false;
-                                    default -> System.out.println("fejl");
+                                switch (t) {
+                                    case 1 -> valgtPizza.tilfoej(new Topping("Chili"));
+                                    case 2 -> valgtPizza.tilfoej(new Topping("Bacon"));
+                                    case 3 -> valgtPizza.tilfoej(new Topping("Ekstra Dressing"));
+                                    case 4 -> valgtPizza.tilfoej(new Topping("Ekstra Ost"));
+                                    case 5 -> valgtPizza.tilfoej(new Topping("Ananas"));
+                                    case 6 -> valgtPizza.tilfoej(new Topping("Salat"));
+                                    case 7 -> valgtPizza.tilfoej(new Topping("Champignon"));
+                                    case 8 -> valgtPizza.tilfoej(new Topping("Kebab"));
+                                    case 9 -> valgtPizza.tilfoej(new Topping("Skinke"));
+                                    case 10 -> valgtPizza.tilfoej(new Topping("Tun"));
+                                    case 11 -> tilfoej = false;
+                                    default -> System.out.println("fejl, prøv igen");
                                 }
                             }
-
                         }
-
-                        //udskriv samlet ordre
-                        System.out.println("===== DIN ORDRE =====");
-                        int total = 0;
-                        for (Pizzaer p : bestilling) {
-                            System.out.println(p.getNavn() + " - " + p.getPris() + " kr ");
-                            total += p.getPris();
+                        //Vider bestille eller færdig
+                        System.out.println("1: Vider bestille");
+                        System.out.println("2: Afslut ordre");
+                        String færdigSvar = ordre.nextLine();
+                        if (færdigSvar.equalsIgnoreCase("2")) {
+                            done = true;
                         }
-
-                        System.out.println("Total pris: " + total + " kr");
-                        System.out.println("Tak for din bestilling!");
                     }
+
+                    //Beregn total
+                    total = 0;
+                    for (Pizzaer p : bestilling) {
+                        total += p.getPris();
+                    }
+
+                    // Når du opretter en ordre
+                    Ordre ordreObj = new Ordre(næsteOrdrenr, kunde, total);
+                    for (Pizzaer p : bestilling) {
+                        ordreObj.tilføjPizza(p);
+                    }
+                    bestillingsliste.tilføjOrdre(ordreObj);
+
+                    //udskriv samlet ordre
+                    System.out.println("===== DIN ORDRE =====");
+                    for (Pizzaer p : bestilling) {
+                        System.out.println(p.getNavn() + " - " + p.getPris() + " kr ");
+
+                        //Tjek efter toppings
+                        if (!p.getToppings().isEmpty()) {
+                            System.out.println("  Toppings:  ");
+                            for(int i = 0; i < p.getToppings().size(); i++) {
+                                System.out.println(p.getToppings().get(i).getNavn());
+                                if (i < p.getToppings().size() - 1) {
+                                    System.out.println(", ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                    }
+                    System.out.println("Total pris: " + total + " kr");
+                    System.out.println("Tak for din bestilling!");
                 }
 
-                case 3 -> {
+                case 3 -> bestillingsliste.visAktiveOrdre();
+
+                case 4 -> {
+                    System.out.println("Indtast ordrenummer der skal afsluttes:");
+                    int ordrenr = input.nextInt();
+                    input.nextLine();
+                    bestillingsliste.afslutOrdre(ordrenr);
+                }
+
+                case 5 -> {
                     run = false;
-                    System.out.println("Program afsluttet");
+                    System.out.println("Program afsluttes. Alle ordrer slettes.");
                 }
                 default -> System.out.println("Fejl!");
             }
