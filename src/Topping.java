@@ -1,18 +1,14 @@
 public class Topping {
 
-    public int pizzaId;
     public String navn;
-    public int pris;
+    public int pris = 10;
 
-    public Topping(int pizzaId, String navn, int pris) {
-        this.pizzaId = pizzaId;
+    public Topping(String navn) {
+
         this.navn = navn;
-        this.pris = pris;
+
     }
 
-    public int getPizzaId() {
-        return pizzaId;
-    }
 
     public String getNavn() {
         return navn;
@@ -24,9 +20,17 @@ public class Topping {
 
     @Override
     public String toString() {
-        return "Pizza Nr" + pizzaId + "Navn" + navn + "Pris" + pris;
+        return "Navn" + navn + "Pris" + pris;
     }
 
 
-}
-
+        private String navn;
+        private final int pris = 10;
+    public Topping(String navn) {
+            this.navn = navn;
+        }
+        public int getpris () {
+            return;
+            pris;
+        }
+    }

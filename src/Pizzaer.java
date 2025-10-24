@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pizzaer {
     private int id;
     private String navn;
@@ -34,4 +37,6 @@ public class Pizzaer {
                 + ingredienser + "\n"
                 + "Pris: " + pris + "Kr\n";
     }
-}
+    private List<Topping> toppings = new ArrayList<>();
+    public void tilfoej(Topping t){ toppings.add(t);pris += toppings.getPris();}
+        public List<Topping>getToppings() return toppings;}
