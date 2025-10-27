@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Comparator;
 
 public class Omsætning {
 
@@ -25,5 +28,26 @@ public class Omsætning {
         }
         System.out.println("_________________________________");
         System.out.println("Samlet omsætning: " + beregnTotalOmsætning() + "kr");
+    }
+
+    public void visPizzaStstistik() {
+        if(ordrer.isEmpty()) {
+            System.out.println("Ingen statistik at vise.");
+            return;
+        }
+
+        Map<String, Integer> pizzaTæller = new HashMap<>();
+
+        //Gå gennem alle ordrer og tæller pizzaer
+        for(Ordre o : ordrer) {
+            for(Pizzaer p : o.getPizzaer()) {
+                pizzaTæller.put(p.getNavn(), pizzaTæller.getOrDefault(p.getNavn(), 0) + 1);
+            }
+        }
+
+        //Sorter efter flest bestillinger
+        pizzaTæller.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue() + " bestillinger"));
     }
 }

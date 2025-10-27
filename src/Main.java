@@ -1,5 +1,3 @@
-//Se omsætning og statistik (ejer)
-
 import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
@@ -26,12 +24,13 @@ public class Main {
         boolean run = true;
         while (run) {
             System.out.println(" Mario Pizzabar");
-            System.out.println("1. Se Pizzamenu");
-            System.out.println("2. Opret Ordre");
+            System.out.println("1: Se Pizzamenu");
+            System.out.println("2: Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
-            System.out.println("6. Afslut program");
+            System.out.println("6: Vis pizzastatistik");
+            System.out.println("7: Afslut program");
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -119,7 +118,7 @@ public class Main {
                         }
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
-                        System.out.println("2: Bestil ordre");
+                        System.out.println("2: Indsend ordre");
                         String færdigSvar = ordre.nextLine();
                         if (færdigSvar.equalsIgnoreCase("2")) {
                             done = true;
@@ -180,15 +179,19 @@ public class Main {
                 case 5 -> {
                     omsætning.visOmsætning();
                     System.out.println("\n");
+                }
+
+                case 6 -> {
+                    omsætning.visPizzaStstistik();
 
                 }
-                case 6 -> {
+
+                case 7 -> {
                     run = false;
                     System.out.println(" Program aflsuttes. Alle ordrer slettes");
                 }
                 default -> System.out.println("Fejl!");
             }
-
         }
     }
 }

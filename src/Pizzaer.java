@@ -32,6 +32,7 @@ public class Pizzaer {
                 + ingredienser + "\n"
                 + "Pris: " + pris + "Kr\n";
     }
+
     private List<Topping> toppings = new ArrayList<>();
     public void tilfoej(Topping t){ toppings.add(t);pris += t.getPris();}
 }

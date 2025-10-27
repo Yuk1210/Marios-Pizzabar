@@ -4,8 +4,7 @@ public class Topping {
     private final int pris = 10;
 
     public Topping(String navn) {
-        this.navn = navn;
-    }
+        this.navn = navn;}
 
     public int getpris() {
         return pris;}
