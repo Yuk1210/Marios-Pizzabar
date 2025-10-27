@@ -1,3 +1,5 @@
+//Se omsætning og statistik (ejer)
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
@@ -24,13 +26,12 @@ public class Main {
         boolean run = true;
         while (run) {
             System.out.println(" Mario Pizzabar");
-            System.out.println("1: Se Pizzamenu");
-            System.out.println("2: Opret Ordre");
+            System.out.println("1. Se Pizzamenu");
+            System.out.println("2. Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
-            System.out.println("6: Vis pizzastatistik");
-            System.out.println("7: Afslut program");
+            System.out.println("6. Afslut program");
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -38,7 +39,6 @@ public class Main {
 
             switch (valg) {
                 case 1 -> {
-                    System.out.println("");
                     System.out.println("==== MARIOS PIZZABAR ====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
@@ -47,7 +47,6 @@ public class Main {
                 }
 
                 case 2 -> {
-                    System.out.println("");
                     System.out.println("Opret odre");
 
                     String navn = randomNavn();
@@ -85,8 +84,8 @@ public class Main {
                         if (svar.equalsIgnoreCase("ja")) {
                             boolean tilfoej = true;
                             while (tilfoej) {
-                                System.out.println();
                                 System.out.println("Vælg topping");
+                                System.out.println();
                                 System.out.println("1 Chili");
                                 System.out.println("2 Bacon");
                                 System.out.println("3 ekstra Dressing");
@@ -120,7 +119,7 @@ public class Main {
                         }
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
-                        System.out.println("2: Indsend ordre");
+                        System.out.println("2: Bestil ordre");
                         String færdigSvar = ordre.nextLine();
                         if (færdigSvar.equalsIgnoreCase("2")) {
                             done = true;
@@ -143,7 +142,6 @@ public class Main {
                     System.out.println(" Ordren er gemt i omsætningen!");
 
                     //udskriv samlet ordre
-                    System.out.println("");
                     System.out.println("===== DIN ORDRE =====");
                     for (Pizzaer p : bestilling) {
                         System.out.println(p.getNavn() + " - " + p.getPris() + " kr ");
@@ -164,8 +162,6 @@ public class Main {
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
                     næsteOrdrenr++;
-                    System.out.println("=====================");
-                    System.out.println("");
                 }
 
                 case 3 -> {
@@ -184,19 +180,15 @@ public class Main {
                 case 5 -> {
                     omsætning.visOmsætning();
                     System.out.println("\n");
-                }
 
+                }
                 case 6 -> {
-                    omsætning.visPizzaStstistik();
-
-                }
-
-                case 7 -> {
                     run = false;
                     System.out.println(" Program aflsuttes. Alle ordrer slettes");
                 }
                 default -> System.out.println("Fejl!");
             }
+
         }
     }
 }
