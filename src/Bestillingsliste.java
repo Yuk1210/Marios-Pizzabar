@@ -41,10 +41,29 @@ public class Bestillingsliste {
         } else{
             System.out.println("Aktive ordrer:");
             for (Ordre o : aktiveOrdrer){
-                System.out.println("- Ordre #" + o.getOrdrenr() + " (" + o.getKunde().navn + ") : " + o.getTotalPris() + " kr");
+                System.out.println("- Ordre #" + o.getOrdrenr() +
+                        " (" + o.getKunde().navn + ") : " +
+                        o.getTotalPris() + " kr" +
+                        " | Afhentning kl. " +
+                        o.getafhentningTid().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm")));
             }
         }
     }
+
+    public Ordre findOrdre(int ordreNr) {
+        for (Ordre o : aktiveOrdrer) {
+            if (o.getOrdrenr() == ordreNr) {
+                return o;
+            }
+        }
+        for (Ordre o : afsluttedeOrdrer) {
+            if (o.getOrdrenr() == ordreNr) {
+                return o;
+            }
+        }
+        return null;
+    }
+
     // (Valgfrit) Vis afsluttede ordrer
     public void visAfsluttedeOrdrer() {
         if (afsluttedeOrdrer.isEmpty()) {

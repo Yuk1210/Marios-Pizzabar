@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
+    static Omsætning omsætning =  new Omsætning();
 
     private static final String[] NAVNE = {
             "Anders", "Maria", "Jonas", "Laura", "Peter",
@@ -29,7 +30,8 @@ public class Main {
             System.out.println("2. Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
-            System.out.println("5. Afslut program");
+            System.out.println("5: Vis omsætningen ");
+            System.out.println("6. Afslut program");
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -135,6 +137,9 @@ public class Main {
                     for (Pizzaer p : bestilling) {
                         ordreObj.tilføjPizza(p);
                     }
+                    // Gem ordren i omsætningen
+                    omsætning.tilføjOrdre(ordreObj);
+                    System.out.println(" Ordren er gemt i omsætningen!");
 
                     //udskriv samlet ordre
                     System.out.println("===== DIN ORDRE =====");
@@ -156,7 +161,7 @@ public class Main {
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
-                    System.out.println("Ordre #" + næsteOrdrenr + " er oprettet til " + navn + "\n");
+                    System.out.println("Ordren er gemt i omsætningen!");
                     næsteOrdrenr++;
                 }
 
@@ -169,14 +174,24 @@ public class Main {
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
                     int afslutNr= input.nextInt();
                     bestillingsliste.afslutOrdre(afslutNr);
+
+                    Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
+                    omsætning.tilføjOrdre(afsluttet); // gem i omsætningen
+                    System.out.println("Ordre #" + afslutNr + " er nu afsluttet og gemt i omsætningen!");
                 }
 
                 case 5 -> {
+                    omsætning.visOmsætning();
+                    System.out.println("\n");
+
+                }
+                case 6 -> {
                     run = false;
-                    System.out.println("Program afsluttes. Alle ordrer slettes.");
+                    System.out.println(" Program aflsuttes. Alle ordrer slettes");
                 }
                 default -> System.out.println("Fejl!");
             }
+
         }
     }
 }

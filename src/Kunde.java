@@ -6,4 +6,10 @@ public class Kunde {
         this.navn = navn;
         this.ordrenr = ordrenr;
     }
+    public String getNavn() {
+        return navn;
+    }
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
 }
