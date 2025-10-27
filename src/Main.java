@@ -119,7 +119,7 @@ public class Main {
                         }
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
-                        System.out.println("2: Afslut ordre");
+                        System.out.println("2: Bestil ordre");
                         String færdigSvar = ordre.nextLine();
                         if (færdigSvar.equalsIgnoreCase("2")) {
                             done = true;
@@ -161,7 +161,6 @@ public class Main {
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
-                    System.out.println("Ordren er gemt i omsætningen!");
                     næsteOrdrenr++;
                 }
 
@@ -174,10 +173,8 @@ public class Main {
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
                     int afslutNr= input.nextInt();
                     bestillingsliste.afslutOrdre(afslutNr);
-
                     Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
-                    omsætning.tilføjOrdre(afsluttet); // gem i omsætningen
-                    System.out.println("Ordre #" + afslutNr + " er nu afsluttet og gemt i omsætningen!");
+                    System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
                 }
 
                 case 5 -> {
