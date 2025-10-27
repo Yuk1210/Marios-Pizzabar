@@ -1,8 +1,3 @@
-//Opret ordre (medarbejder)
-//Vis menu på skærm V
-//Vis og opdater ordreliste
-//Markér ordre som færdig
-//Gem afsluttede ordrer i database
 //Se omsætning og statistik (ejer)
 
 import java.util.Scanner;
@@ -31,7 +26,6 @@ public class Main {
 
             switch (valg) {
                 case 1 -> {
-                    System.out.println("visMenu");
                     System.out.println("==== MARIOS PIZZABAR ====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
@@ -147,6 +141,18 @@ public class Main {
                     }
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
+                }
+                    //Den kører efter "Opret ordre"______________________________________________
+                    System.out.println("\n--- TEST AF ORDRE MED TIDSPUNKTER ---");
+                    Kunde k = new Kunde("Anders", "12345678");
+                    Ordre o = new Ordre(1, k); //Opretter en ny Ordre med ordre nummer 1 og den kunde, vi lige lavede (k).
+                    o.tilføjPizza(new Pizzaer(1, "Vesuvio", "Tomat, ost, skinke", 57)); //Metoden tilføjPizza() opdaterer også totalPris i ordren.
+                    System.out.println(o); // viser oprettet tid
+
+                    o.afslutOrdre();
+                    System.out.println(o); // viser også afsluttet tid
+                    System.out.println("------------------------------------\n");
+                    //____________________________________________________________________________
                 }
 
                 case 3 -> bestillingsliste.visAktiveOrdre();
