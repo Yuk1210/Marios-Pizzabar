@@ -22,16 +22,6 @@ public class Ordre{
         this.erAfsluttet = false; //vi starter med at sige at vores ordre ikke er færdig hvilket betyder false.
     }
 
-        // Tilføj pizza til ordren
-    public void tilføjPizza(Pizzaer pizza) { //Denne metode hedder tilføjPizza og bor inde i klassen Ordre. Den bliver brugt, når kunden bestiller en ny pizza.
-        //Pizzaer pizza → betyder, at metoden modtager et objekt af typen Pizzaer som input. Altså én pizza, som skal lægges til ordren.
-        pizzaer.add(pizza);
-        totalPris += pizza.getPris();
-        //pizza.getPris() henter prisen på den pizza, du lige har lagt til. (f.eks. 57 kr)
-        //+= betyder “læg oveni”.
-        //Så hvis totalPris tidligere var 0, bliver det nu:
-    }
-
     // Marker ordre som afsluttet
     public void afslutOrdre() {
         erAfsluttet = true;
@@ -56,7 +46,6 @@ public class Ordre{
         return totalPris;}
     public boolean erAfsluttet() {
         return erAfsluttet; }
-
     public void tilføjPizza(Pizzaer pizza) {
         pizzaer.add(pizza);
         totalPris += pizza.getPris();
@@ -83,5 +72,4 @@ public class Ordre{
         sb.append("Total: ").append(totalPris).append(" kr\n");
         return sb.toString();
     }
-}
 }

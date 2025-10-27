@@ -1,10 +1,21 @@
 //Se omsætning og statistik (ejer)
 
+import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
+
+    private static final String[] NAVNE = {
+            "Anders", "Maria", "Jonas", "Laura", "Peter",
+            "Emma", "Mikkel", "Sofie", "Thomas", "Ida"
+    };
+
+    public static String randomNavn() {
+        Random random = new Random();
+        return NAVNE[random.nextInt(NAVNE.length)];
+    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -36,12 +47,16 @@ public class Main {
                 case 2 -> {
                     System.out.println("Opret odre");
 
+                    String navn = randomNavn();
+                    Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
+                    System.out.println("Kunde: " + navn);
+                    System.out.println("Ordrenummer: #" + næsteOrdrenr);
+
                     Scanner ordre = new Scanner(System.in);
                     List<Pizzaer> bestilling = new ArrayList<>();
-                    Kunde kunde = new Kunde("Testkunde", "2568");
                     int total = 0;
-
                     boolean done = false;
+
                     while (!done) {
                         // vis alle pizzaer på menuen
                         for (int i = 0; i < Menu.hentMenu().size(); i++) {
@@ -120,7 +135,6 @@ public class Main {
                     for (Pizzaer p : bestilling) {
                         ordreObj.tilføjPizza(p);
                     }
-                    bestillingsliste.tilføjOrdre(ordreObj);
 
                     //udskriv samlet ordre
                     System.out.println("===== DIN ORDRE =====");
@@ -141,21 +155,15 @@ public class Main {
                     }
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
-                }
-                    //Den kører efter "Opret ordre"______________________________________________
-                    System.out.println("\n--- TEST AF ORDRE MED TIDSPUNKTER ---");
-                    Kunde k = new Kunde("Anders", "12345678");
-                    Ordre o = new Ordre(1, k); //Opretter en ny Ordre med ordre nummer 1 og den kunde, vi lige lavede (k).
-                    o.tilføjPizza(new Pizzaer(1, "Vesuvio", "Tomat, ost, skinke", 57)); //Metoden tilføjPizza() opdaterer også totalPris i ordren.
-                    System.out.println(o); // viser oprettet tid
-
-                    o.afslutOrdre();
-                    System.out.println(o); // viser også afsluttet tid
-                    System.out.println("------------------------------------\n");
-                    //____________________________________________________________________________
+                    bestillingsliste.tilføjOrdre(ordreObj);
+                    System.out.println("Ordre #" + næsteOrdrenr + " er oprettet til " + navn + "\n");
+                    næsteOrdrenr++;
                 }
 
-                case 3 -> bestillingsliste.visAktiveOrdre();
+                case 3 -> {
+                    bestillingsliste.visAktiveOrdre();
+                    System.out.println("\n");
+                }
 
                 case 4 -> {
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
