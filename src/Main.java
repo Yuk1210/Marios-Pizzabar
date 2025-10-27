@@ -167,9 +167,8 @@ public class Main {
 
                 case 4 -> {
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
-                    int ordrenr = input.nextInt();
-                    input.nextLine();
-                    bestillingsliste.afslutOrdre(ordrenr);
+                    int afslutNr= input.nextInt();
+                    bestillingsliste.afslutOrdre(afslutNr);
                 }
 
                 case 5 -> {

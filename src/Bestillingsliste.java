@@ -26,7 +26,7 @@ public class Bestillingsliste {
                 break;
             }
         }
-        if (fundet == null){
+        if (fundet != null){
             aktiveOrdrer.remove(fundet);
             afsluttedeOrdrer.add(fundet);
             System.out.println("Ordre #" + ordrenr + " afsluttet og gemt i statistik");
@@ -41,6 +41,17 @@ public class Bestillingsliste {
         } else{
             System.out.println("Aktive ordrer:");
             for (Ordre o : aktiveOrdrer){
+                System.out.println("- Ordre #" + o.getOrdrenr() + " (" + o.getKunde().navn + ") : " + o.getTotalPris() + " kr");
+            }
+        }
+    }
+    // (Valgfrit) Vis afsluttede ordrer
+    public void visAfsluttedeOrdrer() {
+        if (afsluttedeOrdrer.isEmpty()) {
+            System.out.println("Ingen afsluttede ordrer");
+        } else {
+            System.out.println("Afsluttede ordrer:");
+            for (Ordre o : afsluttedeOrdrer) {
                 System.out.println("- Ordre #" + o.getOrdrenr() + " (" + o.getKunde().navn + ") : " + o.getTotalPris() + " kr");
             }
         }
