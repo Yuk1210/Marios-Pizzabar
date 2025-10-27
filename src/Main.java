@@ -38,6 +38,7 @@ public class Main {
 
             switch (valg) {
                 case 1 -> {
+                    System.out.println("");
                     System.out.println("==== MARIOS PIZZABAR ====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
@@ -46,6 +47,7 @@ public class Main {
                 }
 
                 case 2 -> {
+                    System.out.println("");
                     System.out.println("Opret odre");
 
                     String navn = randomNavn();
@@ -83,8 +85,8 @@ public class Main {
                         if (svar.equalsIgnoreCase("ja")) {
                             boolean tilfoej = true;
                             while (tilfoej) {
-                                System.out.println("Vælg topping");
                                 System.out.println();
+                                System.out.println("Vælg topping");
                                 System.out.println("1 Chili");
                                 System.out.println("2 Bacon");
                                 System.out.println("3 ekstra Dressing");
@@ -141,6 +143,7 @@ public class Main {
                     System.out.println(" Ordren er gemt i omsætningen!");
 
                     //udskriv samlet ordre
+                    System.out.println("");
                     System.out.println("===== DIN ORDRE =====");
                     for (Pizzaer p : bestilling) {
                         System.out.println(p.getNavn() + " - " + p.getPris() + " kr ");
@@ -161,6 +164,8 @@ public class Main {
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
                     næsteOrdrenr++;
+                    System.out.println("=====================");
+                    System.out.println("");
                 }
 
                 case 3 -> {
