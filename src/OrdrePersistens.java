@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 //Formål med persisten er at den gemmer dataen, når vi "Afslut program" i txt.fil
@@ -59,6 +60,7 @@ Hvis vi skrev false, ville det overskrive. Altså den sletter tidliggere data.
 
     public static void readOrdre() {
         String ordreFile = "ordre.txt";
+        List<Ordre> ordreList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(ordreFile))) {
             String line;

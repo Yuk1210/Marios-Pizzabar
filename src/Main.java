@@ -25,13 +25,14 @@ public class Main {
 
         boolean run = true;
         while (run) {
-            System.out.println(" Mario Pizzabar");
+            System.out.println(" 🍕Mario's Pizzabar 🍕");
             System.out.println("1. Se Pizzamenu");
             System.out.println("2. Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
             System.out.println("6. Afslut program");
+            System.out.println();
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -40,7 +41,7 @@ public class Main {
             switch (valg) {
                 case 1 -> {
                     System.out.println();
-                    System.out.println("==== MARIOS PIZZABAR ====");
+                    System.out.println("==== 🍕 MARIOS PIZZABAR 🍕====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
                         System.out.println("_______________________");
@@ -197,7 +198,7 @@ public class Main {
                 }
                 case 6 -> {
                     run = false;
-                    System.out.println(" Program aflsuttes. Tak for idag!");
+                    System.out.println(" Program aflsuttes. 🍕Tak for idag! 🍕");
                 }
                 default -> System.out.println("Fejl!");
 
