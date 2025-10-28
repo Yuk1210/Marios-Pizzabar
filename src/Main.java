@@ -152,7 +152,6 @@ public class Main {
                             for(int i = 0; i < p.getToppings().size(); i++) {
                                 System.out.println(p.getToppings().get(i).getNavn());
                                 if (i < p.getToppings().size() - 1) {
-                                    System.out.println(", ");
                                 }
                             }
                             System.out.println();
@@ -165,6 +164,7 @@ public class Main {
                 }
 
                 case 3 -> {
+                    System.out.println(" ");
                     bestillingsliste.visAktiveOrdre();
                     System.out.println("\n");
                 }
