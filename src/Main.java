@@ -32,6 +32,7 @@ public class Main {
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
             System.out.println("6. Afslut program");
+            System.out.println();
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -48,6 +49,7 @@ public class Main {
 
                 case 2 -> {
                     System.out.println("Opret odre");
+                    System.out.println();
 
                     String navn = randomNavn();
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
@@ -140,6 +142,7 @@ public class Main {
                     // Gem ordren i omsætningen
                     omsætning.tilføjOrdre(ordreObj);
                     System.out.println(" Ordren er gemt i omsætningen!");
+                    System.out.println();
 
                     //udskriv samlet ordre
                     System.out.println("===== DIN ORDRE =====");
@@ -160,6 +163,8 @@ public class Main {
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
+                    System.out.println("==========");
+                    System.out.println();
                     næsteOrdrenr++;
                 }
 
