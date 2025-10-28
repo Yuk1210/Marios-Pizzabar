@@ -13,11 +13,11 @@ public class Ordre{
     private LocalDateTime afsluttetTid;
     private boolean erAfsluttet; //En sand/falsk værdi (true/false) der fortæller, om ordren er færdig.
 
-    public Ordre(int ordrenr, Kunde kunde, int totalPris) {
+    public Ordre(int ordrenr, Kunde kunde) {
         this.ordrenr = ordrenr;
         this.kunde = kunde;
         this.pizzaer = new ArrayList<>();
-        this.totalPris = totalPris; //Du starter den samlede pris på 0 kr.
+        this.totalPris = 0; //Du starter den samlede pris på 0 kr.
         this.oprettetTid = LocalDateTime.now();
         this.afhentningTid = oprettetTid.plusMinutes(30);
         this.erAfsluttet = false; //vi starter med at sige at vores ordre ikke er færdig hvilket betyder false.
