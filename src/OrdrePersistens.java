@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrdrePersistens {
-    public class OrdrePersistens {
+
         public static void ordrePersistens(ArrayList<Pizzaer> ordreArrayList) {
             String ordreFile = "ordre.txt";
 
@@ -48,4 +48,3 @@ public class OrdrePersistens {
     }
 
 
-}
