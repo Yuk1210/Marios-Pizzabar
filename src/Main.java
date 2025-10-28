@@ -79,8 +79,10 @@ public class Main {
                         System.out.println("Pris: " + valgtPizza.getPris() + " kr");
 
                         //tilføj topping
+                        System.out.println();
                         System.out.println("Vil du tilføje toppings ja/nej");
                         System.out.println("alle toppings koster en ekstra 10kr");
+                        System.out.println();
 
                         String svar = ordre.nextLine();
                         if (svar.equalsIgnoreCase("ja")) {
