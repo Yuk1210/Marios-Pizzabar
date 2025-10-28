@@ -1,0 +1,6 @@
+1,Peter,Le Blissola,0
+1,Anders,Venezia,0
+1,Maria,Hawaii,0
+1,Ida,Hawaii,0
+1,Laura,Mafia+Tun+Skinke,0
+1,Jonas,Cacciotore,0
