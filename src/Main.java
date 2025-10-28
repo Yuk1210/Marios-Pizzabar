@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public class Main {
     static Omsætning omsætning =  new Omsætning();
 
+
+
     private static final String[] NAVNE = {
             "Anders", "Maria", "Jonas", "Laura", "Peter",
             "Emma", "Mikkel", "Sofie", "Thomas", "Ida"
@@ -195,5 +197,11 @@ public class Main {
             }
 
         }
+        ArrayList<Pizzaer> ordreListe = new ArrayList<>();
+        ordreListe.add(new Pizzaer(1, "Hawaii", "Stor", 65));
+        ordreListe.add(new Pizzaer(2, "Pepperoni", "Mellem", 65));
+
+        OrdrePersistens.ordrePersistens(ordreListe);
+        OrdrePersistens.readOrdre();
     }
 }
