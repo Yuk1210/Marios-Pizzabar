@@ -141,6 +141,11 @@ public class Main {
                     omsætning.tilføjOrdre(ordreObj);
                     System.out.println(" Ordren er gemt i omsætningen!");
 
+                    List<Ordre> gemListe = new ArrayList<>();
+                    gemListe.add(ordreObj);
+                    OrdrePersistens.ordrePersistens(gemListe);
+
+
                     //udskriv samlet ordre
                     System.out.println("===== DIN ORDRE =====");
                     for (Pizzaer p : bestilling) {
