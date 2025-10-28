@@ -39,15 +39,17 @@ public class Main {
 
             switch (valg) {
                 case 1 -> {
+                    System.out.println();
                     System.out.println("==== MARIOS PIZZABAR ====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
-                        System.out.println("_________________________");
+                        System.out.println("_______________________");
                     }
                 }
 
                 case 2 -> {
-                    System.out.println("Opret odre");
+                    System.out.println();
+                    System.out.println("Opret ny ordre");
 
                     String navn = randomNavn();
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
@@ -84,8 +86,8 @@ public class Main {
                         if (svar.equalsIgnoreCase("ja")) {
                             boolean tilfoej = true;
                             while (tilfoej) {
-                                System.out.println("Vælg topping");
                                 System.out.println();
+                                System.out.println("Vælg topping");
                                 System.out.println("1 Chili");
                                 System.out.println("2 Bacon");
                                 System.out.println("3 ekstra Dressing");
@@ -119,7 +121,7 @@ public class Main {
                         }
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
-                        System.out.println("2: Bestil ordre");
+                        System.out.println("2: Ordre færdig");
                         String færdigSvar = ordre.nextLine();
                         if (færdigSvar.equalsIgnoreCase("2")) {
                             done = true;
@@ -139,7 +141,13 @@ public class Main {
                     }
                     // Gem ordren i omsætningen
                     omsætning.tilføjOrdre(ordreObj);
+                    System.out.println();
                     System.out.println(" Ordren er gemt i omsætningen!");
+
+                    List<Ordre> gemListe = new ArrayList<>();
+                    gemListe.add(ordreObj);
+                    OrdrePersistens.ordrePersistens(gemListe);
+
 
                     //udskriv samlet ordre
                     System.out.println("===== DIN ORDRE =====");
@@ -161,32 +169,38 @@ public class Main {
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
                     næsteOrdrenr++;
+                    System.out.println("=====================");
+                    System.out.println();
                 }
 
                 case 3 -> {
-                    System.out.println(" ");
+                    System.out.println();
                     bestillingsliste.visAktiveOrdre();
-                    System.out.println("\n");
+                    System.out.println();
                 }
 
                 case 4 -> {
+                    System.out.println();
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
                     int afslutNr= input.nextInt();
                     bestillingsliste.afslutOrdre(afslutNr);
                     Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
                     System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
+                    System.out.println();
                 }
 
                 case 5 -> {
                     omsætning.visOmsætning();
+                    System.out.println("==============================");
                     System.out.println("\n");
 
                 }
                 case 6 -> {
                     run = false;
-                    System.out.println(" Program aflsuttes. Alle ordrer slettes");
+                    System.out.println(" Program aflsuttes. Tak for idag!");
                 }
                 default -> System.out.println("Fejl!");
+
             }
 
         }
