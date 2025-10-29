@@ -42,4 +42,3 @@ public class Kunde {
         return NAVNE[random.nextInt(NAVNE.length)];
     }
 }
-

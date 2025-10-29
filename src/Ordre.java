@@ -60,4 +60,3 @@ public class Ordre {
         System.out.println("Ordre #" + ordreNr + " afsluttet kl. " + afsluttetTid);
     }
 }
-

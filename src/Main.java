@@ -1,6 +1,5 @@
 //Se omsætning og statistik (ejer)
 
-import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -8,15 +7,6 @@ import java.util.ArrayList;
 public class Main {
     static Omsætning omsætning =  new Omsætning();
 
-    private static final String[] NAVNE = {
-            "Anders", "Maria", "Jonas", "Laura", "Peter",
-            "Emma", "Mikkel", "Sofie", "Thomas", "Ida"
-    };
-
-    public static String randomNavn() {
-        Random random = new Random();
-        return NAVNE[random.nextInt(NAVNE.length)];
-    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -25,13 +15,14 @@ public class Main {
 
         boolean run = true;
         while (run) {
-            System.out.println(" Mario Pizzabar");
+            System.out.println(" 🍕Mario's Pizzabar 🍕");
             System.out.println("1. Se Pizzamenu");
             System.out.println("2. Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
             System.out.println("6. Afslut program");
+            System.out.println();
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -40,7 +31,7 @@ public class Main {
             switch (valg) {
                 case 1 -> {
                     System.out.println();
-                    System.out.println("==== MARIOS PIZZABAR ====");
+                    System.out.println("==== 🍕 MARIOS PIZZABAR MENU 🍕====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
                         System.out.println("_______________________");
@@ -55,6 +46,7 @@ public class Main {
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
                     System.out.println("Kunde: " + navn);
                     System.out.println("Ordrenummer: #" + næsteOrdrenr);
+
 
 
                     Scanner ordre = new Scanner(System.in);
@@ -80,8 +72,10 @@ public class Main {
                         System.out.println("Pris: " + valgtPizza.getPris() + " kr");
 
                         //tilføj topping
+                        System.out.println();
                         System.out.println("Vil du tilføje toppings ja/nej");
                         System.out.println("alle toppings koster en ekstra 10kr");
+                        System.out.println();
 
                         String svar = ordre.nextLine();
                         if (svar.equalsIgnoreCase("ja")) {
@@ -141,6 +135,7 @@ public class Main {
                         ordreObj.tilføjPizza(p);
                     }
                     // Gem ordren i omsætningen
+                    ordreObj.setTotalPris(total);
                     omsætning.tilføjOrdre(ordreObj);
                     System.out.println();
                     System.out.println(" Ordren er gemt i omsætningen!");
@@ -198,12 +193,11 @@ public class Main {
                 }
                 case 6 -> {
                     run = false;
-                    System.out.println(" Program aflsuttes. Tak for idag!");
+                    System.out.println(" Program aflsuttes. 🍕Tak for idag! 🍕");
                 }
                 default -> System.out.println("Fejl!");
 
             }
-
         }
     }
 }
