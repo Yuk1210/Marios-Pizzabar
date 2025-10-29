@@ -11,11 +11,11 @@ public class Ordre {
     private LocalDateTime afsluttetTid; // Hvornår ordren blev afsluttet
 
     // Når der laves en ny ordre
-    public Ordre(int ordreNr, Kunde kunde) {
+    public Ordre(int ordreNr, Kunde kunde, int totalPris) {
         this.ordreNr = ordreNr;
         this.kunde = kunde;
         this.pizzaer = new ArrayList<>();
-        this.totalPris = 0;
+        this.totalPris = totalPris;
         this.oprettetTid = LocalDateTime.now(); // Gem tidspunkt for oprettelse
         this.afsluttetTid = null;               // Ikke afsluttet endnu
     }

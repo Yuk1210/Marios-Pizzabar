@@ -23,3 +23,12 @@
 1,Ida,Vesubio,57
 1,Laura,Vesubio,57
 2,Mikkel,Carbona,63
+1,Thomas,Dennis,Victoria,0
+1,Emma,Silvia+Chili,Bertil,0
+1,Peter,Dennis+Ananas,0
+2,Maria,Carbona,0
+3,Emma,Cacciotore,Cacciotore,0
+1,Laura,Dennis,0
+1,Thomas,Dennis,65
+1,Anders,Cacciotore,57
+1,Peter,Carbona,63
