@@ -23,7 +23,7 @@ Hvis vi skrev false, ville det overskrive. Altså den sletter tidliggere data.
 
 
 // Dette er det første den skriver i txt.filen, og dette er Kundens ordre nr og navn.
-                    writer.write(ordre.getOrdrenr() + "," + ordre.getKunde().getNavn());
+                    writer.write(ordre.getOrdreNr() + "," + ordre.getKunde().getNavn());
 
 
 // I dette loop, beder vi at køre alle pizzaer på ordre listen.

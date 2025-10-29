@@ -8,15 +8,6 @@ import java.util.ArrayList;
 public class Main {
     static Omsætning omsætning =  new Omsætning();
 
-    private static final String[] NAVNE = {
-            "Anders", "Maria", "Jonas", "Laura", "Peter",
-            "Emma", "Mikkel", "Sofie", "Thomas", "Ida"
-    };
-
-    public static String randomNavn() {
-        Random random = new Random();
-        return NAVNE[random.nextInt(NAVNE.length)];
-    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -52,10 +43,12 @@ public class Main {
                     System.out.println();
                     System.out.println("Opret ny ordre");
 
-                    String navn = randomNavn();
+                    String navn = Kunde.randomNavn();
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
                     System.out.println("Kunde: " + navn);
                     System.out.println("Ordrenummer: #" + næsteOrdrenr);
+
+
 
                     Scanner ordre = new Scanner(System.in);
                     List<Pizzaer> bestilling = new ArrayList<>();
