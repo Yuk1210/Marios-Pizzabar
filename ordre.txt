@@ -23,10 +23,3 @@
 1,Ida,Vesubio,57
 1,Laura,Vesubio,57
 2,Mikkel,Carbona,63
-1,Sofie,Vesubio,57
-1,Peter,Vesubio,0
-1,Peter,Vesubio+Chili+Bacon,Amerikaner,0
-2,Mikkel,Carbona,0
-1,Mikkel,Vesubio,0
-1,Laura,Vesubio,57
-2,Jonas,Carbona,63
