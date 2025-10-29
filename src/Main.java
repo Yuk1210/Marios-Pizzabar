@@ -1,6 +1,3 @@
-//Se omsætning og statistik (ejer)
-
-import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -178,10 +175,20 @@ public class Main {
                 case 4 -> {
                     System.out.println();
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
-                    int afslutNr= input.nextInt();
-                    bestillingsliste.afslutOrdre(afslutNr);
-                    Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
-                    System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
+                    int afslutNr = input.nextInt();
+
+                    // Find ordren først
+                    Ordre afsluttetOrdre = bestillingsliste.findOrdre(afslutNr);
+
+                    if (afsluttetOrdre != null) {
+                        bestillingsliste.afslutOrdre(afslutNr);
+
+                        // Vis tidspunktet for afslutning
+                        System.out.println("Ordre #" + afslutNr + " er nu afsluttet kl. " + afsluttetOrdre.getAfsluttetTid());
+                    } else {
+                        System.out.println("Ordre #" + afslutNr + " blev ikke fundet.");
+                    }
+
                     System.out.println();
                 }
 
