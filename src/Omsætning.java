@@ -24,7 +24,7 @@ public class Omsætning {
     public void visOmsætning() {
         System.out.println("===== OMSÆTNINGS RAPPORT =====");
         for (Ordre o : ordrer ){
-            System.out.println(" Ordre nr: " + o.getOrdrenr() + " | Kunde: " + o.getKunde().getNavn() + " | Total: " + o.getTotalPris() + " kr");
+            System.out.println(" Ordre nr: " + o.getOrdreNr() + " | Kunde: " + o.getKunde().getNavn() + " | Total: " + o.getTotalPris() + " kr");
         }
         System.out.println("_________________________________");
         System.out.println("Samlet omsætning: " + beregnTotalOmsætning() + "kr");
