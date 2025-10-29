@@ -25,13 +25,14 @@ public class Main {
 
         boolean run = true;
         while (run) {
-            System.out.println(" Mario Pizzabar");
+            System.out.println(" 🍕Mario's Pizzabar 🍕");
             System.out.println("1. Se Pizzamenu");
             System.out.println("2. Opret Ordre");
             System.out.println("3: Vis aktive ordrer");
             System.out.println("4: Afslut ordre");
             System.out.println("5: Vis omsætningen ");
             System.out.println("6. Afslut program");
+            System.out.println();
             System.out.print("Vælg: ");
 
             int valg = input.nextInt();
@@ -39,15 +40,17 @@ public class Main {
 
             switch (valg) {
                 case 1 -> {
-                    System.out.println("==== MARIOS PIZZABAR ====");
+                    System.out.println();
+                    System.out.println("==== 🍕 MARIOS PIZZABAR MENU 🍕====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
-                        System.out.println("_________________________");
+                        System.out.println("_______________________");
                     }
                 }
 
                 case 2 -> {
-                    System.out.println("Opret odre");
+                    System.out.println();
+                    System.out.println("Opret ny ordre");
 
                     String navn = randomNavn();
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
@@ -77,15 +80,17 @@ public class Main {
                         System.out.println("Pris: " + valgtPizza.getPris() + " kr");
 
                         //tilføj topping
+                        System.out.println();
                         System.out.println("Vil du tilføje toppings ja/nej");
                         System.out.println("alle toppings koster en ekstra 10kr");
+                        System.out.println();
 
                         String svar = ordre.nextLine();
                         if (svar.equalsIgnoreCase("ja")) {
                             boolean tilfoej = true;
                             while (tilfoej) {
-                                System.out.println("Vælg topping");
                                 System.out.println();
+                                System.out.println("Vælg topping");
                                 System.out.println("1 Chili");
                                 System.out.println("2 Bacon");
                                 System.out.println("3 ekstra Dressing");
@@ -119,7 +124,7 @@ public class Main {
                         }
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
-                        System.out.println("2: Bestil ordre");
+                        System.out.println("2: Ordre færdig");
                         String færdigSvar = ordre.nextLine();
                         if (færdigSvar.equalsIgnoreCase("2")) {
                             done = true;
@@ -139,6 +144,7 @@ public class Main {
                     }
                     // Gem ordren i omsætningen
                     omsætning.tilføjOrdre(ordreObj);
+                    System.out.println();
                     System.out.println(" Ordren er gemt i omsætningen!");
 
                     List<Ordre> gemListe = new ArrayList<>();
@@ -166,32 +172,38 @@ public class Main {
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
                     næsteOrdrenr++;
+                    System.out.println("=====================");
+                    System.out.println();
                 }
 
                 case 3 -> {
-                    System.out.println(" ");
+                    System.out.println();
                     bestillingsliste.visAktiveOrdre();
-                    System.out.println("\n");
+                    System.out.println();
                 }
 
                 case 4 -> {
+                    System.out.println();
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
                     int afslutNr= input.nextInt();
                     bestillingsliste.afslutOrdre(afslutNr);
                     Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
                     System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
+                    System.out.println();
                 }
 
                 case 5 -> {
                     omsætning.visOmsætning();
+                    System.out.println("==============================");
                     System.out.println("\n");
 
                 }
                 case 6 -> {
                     run = false;
-                    System.out.println(" Program aflsuttes. Alle ordrer slettes");
+                    System.out.println(" Program aflsuttes. 🍕Tak for idag! 🍕");
                 }
                 default -> System.out.println("Fejl!");
+
             }
 
         }

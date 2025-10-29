@@ -77,4 +77,5 @@ public class Ordre{
         sb.append("Total: ").append(totalPris).append(" kr\n");
         return sb.toString();
     }
+
 }
