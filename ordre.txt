@@ -1,0 +1,25 @@
+1,Laura,Vesubio,57
+1,Thomas,Vesubio+Chili+Bacon,77
+1,Mikkel,Vesubio,57
+2,Thomas,Amerikaner+Chili+Bacon+Ekstra Dressing,83
+1,Anders,Vesubio,57
+1,Ida,Vesubio,57
+2,Thomas,Amerikaner,53
+1,Emma,Vesubio,57
+1,Ida,Vesubio,57
+1,Sofie,Vesubio,57
+1,Ida,Vesubio+Chili+Bacon+Ekstra Dressing,87
+2,Maria,Vesubio,57
+3,Anders,Vesubio,57
+1,Thomas,Vesubio,57
+1,Anders,Vesubio,57
+1,Thomas,Vesubio+Bacon+Chili+Ananas,87
+2,Thomas,Silvia,61
+3,Sofie,Toronfo,61
+1,Ida,Vesubio+Chili+Bacon,77
+2,Laura,Carbona,Carbona,126
+1,Maria,Vesubio,57
+1,Maria,Vesubio,Vesubio,114
+1,Ida,Vesubio,57
+1,Laura,Vesubio,57
+2,Mikkel,Carbona,63

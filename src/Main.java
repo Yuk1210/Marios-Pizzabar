@@ -41,7 +41,7 @@ public class Main {
             switch (valg) {
                 case 1 -> {
                     System.out.println();
-                    System.out.println("==== 🍕 MARIOS PIZZABAR 🍕====");
+                    System.out.println("==== 🍕 MARIOS PIZZABAR MENU 🍕====");
                     for (Pizzaer p : Menu.hentMenu()) {
                         System.out.println(p);
                         System.out.println("_______________________");
