@@ -5,23 +5,29 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
+
+    // Vi placerer Omsætning og Bestillingsliste som statiske variabler i Main-klassen,
+    // så de kan bruges i alle menupunkter og eksisterer i hele programmets levetid.
+    // Det giver en bedre programstruktur og sikrer, at alle ordrer gemmes samme sted.
+
+    // Asser Start
     static Omsætning omsætning =  new Omsætning();
+    static Bestillingsliste bestillingsliste = new Bestillingsliste();
 
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Bestillingsliste bestillingsliste = new Bestillingsliste();
         int næsteOrdrenr = 1;
 
         boolean run = true;
         while (run) {
             System.out.println(" 🍕Mario's Pizzabar 🍕");
             System.out.println("1. Se Pizzamenu");
-            System.out.println("2. Opret Ordre");
-            System.out.println("3: Vis aktive ordrer");
+            System.out.println("2. Opret Ordre ➕");
+            System.out.println("3: Vis aktive ordrer ⏳");
             System.out.println("4: Afslut ordre");
-            System.out.println("5: Vis omsætningen ");
-            System.out.println("6. Afslut program");
+            System.out.println("5: Vis omsætningen  ");
+            System.out.println("6. Afslut program ❌");
             System.out.println();
             System.out.print("Vælg: ");
 
@@ -29,7 +35,7 @@ public class Main {
             input.nextLine();
 
             switch (valg) {
-                case 1 -> {
+                case 1 -> { // her kalder metoden der viser metoden
                     System.out.println();
                     System.out.println("==== 🍕 MARIOS PIZZABAR MENU 🍕====");
                     for (Pizzaer p : Menu.hentMenu()) {
@@ -38,18 +44,22 @@ public class Main {
                     }
                 }
 
-                case 2 -> {
-                    System.out.println();
+                case 2 -> { // her kaldes metoden der opretter en ordre
                     System.out.println("Opret ny ordre");
 
                     String navn = Kunde.randomNavn();
+                    System.out.println();
+
                     Kunde kunde = new Kunde(navn, String.valueOf(næsteOrdrenr));
                     System.out.println("Kunde: " + navn);
                     System.out.println("Ordrenummer: #" + næsteOrdrenr);
+                    System.out.println();
+                    // Asser slut
 
-
+                    // Imrane Start
 
                     Scanner ordre = new Scanner(System.in);
+
                     List<Pizzaer> bestilling = new ArrayList<>();
                     int total = 0;
                     boolean done = false;
@@ -62,19 +72,20 @@ public class Main {
                         }
 
                         // læs brugerens valg og vælg pizza
+                        System.out.println();
                         System.out.println("Vælg pizza # ");
                         valg = ordre.nextInt();
                         ordre.nextLine();
                         Pizzaer valgtPizza = Menu.hentMenu().get(valg - 1);
                         bestilling.add(valgtPizza);
 
+
                         System.out.println("Tak!, du har nu valgt pizza nr. " + valg);
                         System.out.println("Pris: " + valgtPizza.getPris() + " kr");
 
                         //tilføj topping
                         System.out.println();
-                        System.out.println("Vil du tilføje toppings ja/nej");
-                        System.out.println("alle toppings koster en ekstra 10kr");
+                        System.out.println("Vil du tilføje toppings ja/nej" + "(alle toppings koster en ekstra 10kr)");
                         System.out.println();
 
                         String svar = ordre.nextLine();
@@ -111,9 +122,13 @@ public class Main {
                                     case 10 -> valgtPizza.tilfoej(new Topping("Tun"));
                                     case 11 -> tilfoej = false;
                                     default -> System.out.println("fejl, prøv igen");
+
+                                    // Imarane slut
                                 }
                             }
                         }
+
+                        // Start Dilek
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
                         System.out.println("2: Ordre færdig");
@@ -130,7 +145,7 @@ public class Main {
                     }
 
                     // Når du opretter en ordre
-                    Ordre ordreObj = new Ordre(næsteOrdrenr, kunde);
+                    Ordre ordreObj = new Ordre(næsteOrdrenr, kunde, total);
                     for (Pizzaer p : bestilling) {
                         ordreObj.tilføjPizza(p);
                     }
@@ -161,6 +176,9 @@ public class Main {
                             System.out.println();
                         }
                     }
+                    // Slut Dilek
+
+                    // Start Angel
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
@@ -169,13 +187,13 @@ public class Main {
                     System.out.println();
                 }
 
-                case 3 -> {
+                case 3 -> { // viser aktive ordrer
                     System.out.println();
                     bestillingsliste.visAktiveOrdre();
                     System.out.println();
                 }
 
-                case 4 -> {
+                case 4 -> { // aflsutter en ordre
                     System.out.println();
                     System.out.println("Indtast ordrenummer der skal afsluttes:");
                     int afslutNr= input.nextInt();
@@ -183,19 +201,26 @@ public class Main {
                     Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
                     System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
                     System.out.println();
+
+                    // Slut Angel
+
                 }
 
-                case 5 -> {
+                // Start Saddam
+
+                case 5 -> { // viser omsætningen (dagens salg )
                     omsætning.visOmsætning();
                     System.out.println("==============================");
                     System.out.println("\n");
 
                 }
-                case 6 -> {
+                case 6 -> { // afslutter programmet.
                     run = false;
                     System.out.println(" Program aflsuttes. 🍕Tak for idag! 🍕");
                 }
                 default -> System.out.println("Fejl!");
+
+                // Slut Saddam
 
             }
         }

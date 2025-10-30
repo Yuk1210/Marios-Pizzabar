@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class Kunde {
     // En liste med mulige navne, som vi kan vælge imellem
-    private static final String[] NAVNE = {
+    private static String[] NAVNE = {
             "Anders", "Maria", "Jonas", "Laura", "Peter",
-            "Emma", "Mikkel", "Sofie", "Thomas", "Ida"
+            "Emma", "Mikkel", "Sofie", "Thomas", "Ida", "Abdi", "Younas", "Ali"
     };
 
     private String navn;
