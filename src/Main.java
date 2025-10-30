@@ -9,8 +9,6 @@ public class Main {
     // Vi placerer Omsætning og Bestillingsliste som statiske variabler i Main-klassen,
     // så de kan bruges i alle menupunkter og eksisterer i hele programmets levetid.
     // Det giver en bedre programstruktur og sikrer, at alle ordrer gemmes samme sted.
-
-    // Asser Start
     static Omsætning omsætning =  new Omsætning();
     static Bestillingsliste bestillingsliste = new Bestillingsliste();
 
@@ -54,12 +52,10 @@ public class Main {
                     System.out.println("Kunde: " + navn);
                     System.out.println("Ordrenummer: #" + næsteOrdrenr);
                     System.out.println();
-                    // Asser slut
 
-                    // Imrane Start
+
 
                     Scanner ordre = new Scanner(System.in);
-
                     List<Pizzaer> bestilling = new ArrayList<>();
                     int total = 0;
                     boolean done = false;
@@ -85,7 +81,7 @@ public class Main {
 
                         //tilføj topping
                         System.out.println();
-                        System.out.println("Vil du tilføje toppings ja/nej" + "(alle toppings koster en ekstra 10kr)");
+                        System.out.println("Vil du tilføje toppings ja/nej" + "(alle toppings koster en ekstra 10kr )");
                         System.out.println();
 
                         String svar = ordre.nextLine();
@@ -122,13 +118,9 @@ public class Main {
                                     case 10 -> valgtPizza.tilfoej(new Topping("Tun"));
                                     case 11 -> tilfoej = false;
                                     default -> System.out.println("fejl, prøv igen");
-
-                                    // Imarane slut
                                 }
                             }
                         }
-
-                        // Start Dilek
                         //Vider bestille eller færdig
                         System.out.println("1: Vider bestille");
                         System.out.println("2: Ordre færdig");
@@ -176,9 +168,6 @@ public class Main {
                             System.out.println();
                         }
                     }
-                    // Slut Dilek
-
-                    // Start Angel
                     System.out.println("Total pris: " + total + " kr");
                     System.out.println("Tak for din bestilling!");
                     bestillingsliste.tilføjOrdre(ordreObj);
@@ -201,12 +190,7 @@ public class Main {
                     Ordre afsluttet = bestillingsliste.findOrdre(afslutNr); // hent ordren
                     System.out.println("Ordre #" + afslutNr + " er nu afsluttet");
                     System.out.println();
-
-                    // Slut Angel
-
                 }
-
-                // Start Saddam
 
                 case 5 -> { // viser omsætningen (dagens salg )
                     omsætning.visOmsætning();
@@ -219,8 +203,6 @@ public class Main {
                     System.out.println(" Program aflsuttes. 🍕Tak for idag! 🍕");
                 }
                 default -> System.out.println("Fejl!");
-
-                // Slut Saddam
 
             }
         }
