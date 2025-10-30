@@ -27,7 +27,7 @@ public class Omsætning {
             System.out.println(" Ordre nr: " + o.getOrdreNr() + " | Kunde: " + o.getKunde().getNavn() + " | Total: " + o.getTotalPris() + " kr");
         }
         System.out.println("_________________________________");
-        System.out.println("Samlet omsætning: " + beregnTotalOmsætning() + "kr");
+        System.out.println("Samlet omsætning for idag: " + beregnTotalOmsætning() + "kr");
     }
 
     public void visPizzaStstistik() {
